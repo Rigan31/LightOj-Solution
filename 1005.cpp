@@ -1,6 +1,16 @@
 /// Bismillahir Rahmanir Rahim
 
+/*
+    Let's say I put three rooks in (r1,c1), (r2,c2), (r3, c3) position.They won't attack each other if
+    r1 != r2 != r3 and c1 != !c2 != c3.So the column and row of each rook must be different.Let's say
+    I have an n*n chessboard and I have to put k rooks in here(k <= n).I can choose k columns from n column in
+    nCk(combination) ways. Then I can choose k rows from n row in nPk(permutation) ways(because when we choose
+    rows ordering matters).So the number of ways to put k rooks in nCk*nPk ways.
+    Now nCk*nPk = nCk*nCk*K!
 
+    We can find the binomial coefficient using dp.
+
+*/
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -63,7 +73,7 @@ int main(){
     }
     for(int i = 2; i < 35; i++){
         for(int j = 1; j <= i; j++){
-            bc[i][j] = bc[i-1][j-1]+bc [i-1][j];
+            bc[i][j] = bc[i-1][j-1]+bc[i-1][j];
         }
     }
 
@@ -76,11 +86,3 @@ int main(){
     }
 
 }
-
-
-
-
-
-
-
-
